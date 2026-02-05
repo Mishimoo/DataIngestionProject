@@ -1,6 +1,7 @@
-import pandas as pd
+import logging
 import mysql.connector
-import sys
+import pandas as pd
+from sqlalchemy import create_engine
 
 #database configuration
 DB_CONFIG = {
@@ -8,38 +9,71 @@ DB_CONFIG = {
     'user': 'root',
     'password': '1234'
 }
-def retrieve_data(filepath):
-    # read data from file into pandas dataframe
-    df = pd.read_csv(filepath)
-    
-    # Fill in NaN suppression flag values since we cannot remove rows containing 1.0 as their suppression flag without having a value to compare to
-    df['Suppression Flag'] = df['Suppression Flag'].fillna(0.0)
-    
-    # Removes all rows with a suppression flag of 1.0, indicating the data should be suppressed
-    filtered_df = df[df['Suppression Flag'] != 1.0]
+logging.basicConfig(filename='logs/dblog.log', filemode="a",\
+    format="%(process)d - %(asctime)s - %(name)s - %(message)s", \
+        datefmt= "%d-%b-%y %H:%M:%S",level = logging.DEBUG)
+logger = logging.getLogger("DBlogger")
+def start_DB():
+    try:
+        connection = mysql.connector.connect(**DB_CONFIG)
+        if connection.is_connected():
+            logger.info("Successfully connected to database")
+            with connection.cursor() as cursor:
+                cursor.execute("CREATE DATABASE IF NOT EXISTS mental_health_db")
+                cursor.execute("USE mental_health_db")
+                cursor.execute("""CREATE TABLE IF NOT EXISTS mental_health (indicator TEXT NOT NULL, category TEXT NOT NULL, state TEXT NOT NULL, \
+                               subcategory TEXT NOT NULL, phase TEXT NOT NULL, time_period INT NOT NULL, time_period_label TEXT NOT NULL, time_period_start_date DATETIME NOT NULL,\
+                                time_period_end_date DATETIME NOT NULL, value REAL, lowci REAL, highci REAL, confidence_interval TEXT, quartile_range TEXT)""")
+                cursor.execute("""CREATE TABLE IF NOT EXISTS mental_health_rejected (indicator TEXT, category TEXT, \
+                               state TEXT, subcategory TEXT, phase TEXT, time_period INT, time_period_label TEXT, \
+                               time_period_start_date DATETIME, time_period_end_date DATETIME, value REAL, lowci REAL, highci REAL,\
+                                confidence_interval TEXT, quartile_range TEXT, suppression_flag REAL, rejection_reason TEXT)""")
+            return connection
+        else:
+            logger.warning("Failed to connect to DB. Check credentials and DB status and try again.")
+    except mysql.connector.Error as err:
+        logger.error(f"An error has occurred during connection: {err}")
 
-    # Removes all rows containing a Phase of -1 since all rows containing this lack most usable data
-    filtered_df = filtered_df[filtered_df['Phase'] != '-1']
+def insert_valid_data(conn, df):
+    data_to_insert = [tuple(row) for row in df.values]
+    insert_query = f"""INSERT INTO mental_health (indicator, category, state , \
+                               subcategory, phase, time_period, time_period_label, time_period_start_date,\
+                                time_period_end_date, value, lowci, highci, confidence_interval, quartile_range) VALUES (%s, %s, %s, \
+                               %s, %s, %s, %s, %s,\
+                                %s, %s, %s, %s, %s, %s))"""
+    try:
+        conn.cursor.executemany(insert_query, data_to_insert)
+        conn.commit()
+        logger.info(f"Succesfully inserted {len(data_to_insert)} rows into database")
+    except mysql.connector.Error as err:
+        logger.error(f"Error occurred during data insertion: {err}")
 
-    # Remove the suppression flag column as it is no longer necessary
-    filtered_df.drop(columns=['Suppression Flag'], inplace=True)
-    
-    return filtered_df
-    
-retrieve_data(r"data\Raw Data\Mental_Health_DB.csv")
+def insert_rejected_data(conn, df):
+    data_to_insert = [tuple(row) for row in df.values]
+    insert_query = f"""INSERT INTO mental_health_rejected (indicator, category, state , \
+                               subcategory, phase, time_period, time_period_label, time_period_start_date,\
+                                time_period_end_date, value, lowci, highci, confidence_interval, quartile_range,\
+                                      suppression_flag, rejection_reason) VALUES (%s, %s, %s, \
+                               %s, %s, %s, %s, %s,\
+                                %s, %s, %s, %s, %s, %s, %s, %s))"""
+    try:
+        conn.cursor.executemany(insert_query, data_to_insert)
+        conn.commit()
+        logger.info(f"Succesfully inserted {len(data_to_insert)} rows into rejected database")
+    except mysql.connector.Error as err:
+        logger.error(f"Error occurred during data insertion: {err}")
+
+def close_connection(conn):
+    try:
+        conn.close()
+        logger.info("Successfully closed DB connection")
+    except mysql.connector.Error as err:
+        logger.error(f"Error occurred when closing the connection: {err}")
+
+
+
+
 #attempt to connect to the MySQL database
-try:
-    connection = mysql.connector.connect(**DB_CONFIG)
-    if connection.is_connected():
-        print("Successful connection achieved")
-        with connection.cursor() as cursor:
-            cursor.execute("CREATE DATABASE IF NOT EXISTS mental_health_db")
-            cursor.execute("USE mental_health_db")
-            cursor.execute("""CREATE TABLE IF NOT EXISTS mental_health (indicator TEXT, category TEXT, state TEXT, subcategory TEXT, Phase TEXT, time_period REAL, time_period_label TEXT, time_period_start_date TEXT, time_period_end_date TEXT, value REAL, lowci REAL, highci REAL, confidence_interval TEXT, quartile_range TEXT)""")
-        connection.close()
-except mysql.connector.Error as err:
-    print(f"An error has occurred during connection: {err}")
-    sys.exit(1)
 
 
 # conn = sqlite3.connect('testDB.db')
