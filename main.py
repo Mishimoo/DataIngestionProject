@@ -25,7 +25,8 @@ def main():
     #takes the dataframe and turns it into a valid and a rejected dataframe
     valid, rejected = retrieve_data(df)
     #cleans the valid data to be stored int he database
-    #cleaner goes here
+    valid = clean_data(valid)
+    print(valid.head())
     #loads valid into database
     #loader method goes here
 

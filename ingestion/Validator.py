@@ -17,12 +17,6 @@ def retrieve_data(df):
         "time period", "time period label",
         "time period start date", "time period end date"
     ]
-    print("COLUMNS:", df.columns.tolist())
-
-    missing_cols = [c for c in REQUIRED_FIELDS if c not in df.columns]
-    print("MISSING REQUIRED COLS:", missing_cols)
-
-
 
     def is_null(series: pd.Series) -> pd.Series:
         # True if NaN OR place-holder string
