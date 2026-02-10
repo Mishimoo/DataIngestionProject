@@ -15,7 +15,7 @@ db_name = os.getenv("DB_NAME")
 DB_CONFIG = {
     'host': db_host,
     'user': db_user,
-    'password': db_password,
+    'password': db_password
 }
 logging.basicConfig(filename='logs/dblog.log', filemode="a",\
     format="%(process)d - %(asctime)s - %(name)s - %(message)s", \
