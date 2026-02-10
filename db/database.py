@@ -1,13 +1,21 @@
 import logging
 import mysql.connector
 import pandas as pd
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
+load_dotenv("credentials.env")
+
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")
+db_name = os.getenv("DB_NAME")
 #database configuration
 DB_CONFIG = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '1234'
+    'host': db_host,
+    'user': db_user,
+    'password': db_password,
 }
 logging.basicConfig(filename='logs/dblog.log', filemode="a",\
     format="%(process)d - %(asctime)s - %(name)s - %(message)s", \
