@@ -1,25 +1,19 @@
 import pandas as pd
+from pathlib import Path
+import logging
 
-class DataReader():
+logger = logging.getLogger(__name__)
 
-    def __init__(self):
-        self.data_path: str = "data/Raw Data/Mental_Health_DB.csv"
-    
-    def read_data(self) -> list[dict]:
-        try:
-            # takes a csv and turns it into a pandas dataframe
-            df = pd.read_csv(self.data_path)
-            # turns that dataframe into a list of dicts
-            records = df.to_dict(orient="records")
+def read_data(data_path):
+    data_path = Path(data_path)
+    logger.debug(f"Attempting to read CSV at {data_path}")
 
-            # logs successful reading
-            # ("read " + len(records) + f" rows from source file {self.data_path}") 
+    df = pd.read_csv(data_path)
 
-            return records
-            
-            
-        except:
-            print("something went wrong")
+    logger.info(f"Read {len(df)} rows from {data_path}")
+    return df
+
+
 
 
 
