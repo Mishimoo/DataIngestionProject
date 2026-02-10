@@ -12,7 +12,7 @@ def read_data(data_path):
 
     logger.info(f"Read {len(df)} rows from {data_path}")
     return df
-        
+
 
 
 
