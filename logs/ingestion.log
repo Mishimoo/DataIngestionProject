@@ -1,0 +1,25 @@
+25684 - 10-Feb-26 09:50:05 - main - INFO - Ingestion pipeline starting
+15264 - 10-Feb-26 09:50:22 - main - INFO - Ingestion pipeline starting
+6080 - 10-Feb-26 09:51:01 - main - INFO - Ingestion pipeline starting
+6080 - 10-Feb-26 09:51:01 - ingestion.Reader - DEBUG - Attempting to read CSV at C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+6080 - 10-Feb-26 09:51:01 - ingestion.Reader - INFO - Read 10404 rows from C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+6080 - 10-Feb-26 09:51:02 - ingestion.Validator - INFO - Successfully validated 0 rows
+6080 - 10-Feb-26 09:51:02 - ingestion.Validator - INFO - Rejected 10404 rows
+22140 - 10-Feb-26 09:54:41 - main - INFO - Ingestion pipeline starting
+22140 - 10-Feb-26 09:54:41 - ingestion.Reader - DEBUG - Attempting to read CSV at C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+22140 - 10-Feb-26 09:54:41 - ingestion.Reader - INFO - Read 10404 rows from C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+8348 - 10-Feb-26 09:55:03 - main - INFO - Ingestion pipeline starting
+8348 - 10-Feb-26 09:55:03 - ingestion.Reader - DEBUG - Attempting to read CSV at C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+8348 - 10-Feb-26 09:55:03 - ingestion.Reader - INFO - Read 10404 rows from C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+8348 - 10-Feb-26 09:55:04 - ingestion.Validator - INFO - Successfully validated 0 rows
+8348 - 10-Feb-26 09:55:04 - ingestion.Validator - INFO - Rejected 10404 rows
+9976 - 10-Feb-26 09:55:49 - main - INFO - Ingestion pipeline starting
+9976 - 10-Feb-26 09:55:49 - ingestion.Reader - DEBUG - Attempting to read CSV at C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+9976 - 10-Feb-26 09:55:49 - ingestion.Reader - INFO - Read 10404 rows from C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+9976 - 10-Feb-26 09:55:49 - ingestion.Validator - INFO - Successfully validated 0 rows
+9976 - 10-Feb-26 09:55:49 - ingestion.Validator - INFO - Rejected 10404 rows
+11728 - 10-Feb-26 09:56:05 - main - INFO - Ingestion pipeline starting
+11728 - 10-Feb-26 09:56:05 - ingestion.Reader - DEBUG - Attempting to read CSV at C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+11728 - 10-Feb-26 09:56:05 - ingestion.Reader - INFO - Read 10404 rows from C:\DataTrainingProjects\Project1\DataIngestionProject\data\Mental_Health_DB.csv
+11728 - 10-Feb-26 09:56:05 - ingestion.Validator - INFO - Successfully validated 9914 rows
+11728 - 10-Feb-26 09:56:05 - ingestion.Validator - INFO - Rejected 490 rows

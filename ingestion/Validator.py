@@ -2,9 +2,10 @@ import pandas as pd
 import logging
 from .Reader import read_data
 
-def retrieve_data():
-    data_path: str = "data/Raw Data/Mental_Health_DB.csv"
-    df = read_data(data_path)
+# Logger for the Ingestion 
+logger = logging.getLogger(__name__)
+
+def retrieve_data(df):
 
     # Normalize column names so your REQUIRED_FIELDS match
     df = df.copy()
@@ -13,9 +14,15 @@ def retrieve_data():
     # These fields cant be null
     REQUIRED_FIELDS = [
         "indicator", "group", "state", "subgroup", "phase",
-        "time_period", "time_period_label",
-        "time_period_start_date", "time_period_end_date"
+        "time period", "time period label",
+        "time period start date", "time period end date"
     ]
+    print("COLUMNS:", df.columns.tolist())
+
+    missing_cols = [c for c in REQUIRED_FIELDS if c not in df.columns]
+    print("MISSING REQUIRED COLS:", missing_cols)
+
+
 
     def is_null(series: pd.Series) -> pd.Series:
         # True if NaN OR place-holder string
@@ -55,8 +62,12 @@ def retrieve_data():
         if str(row.get("phase", "")).strip() == "-1":
             return "phase = -1"
         return "unknown"
-
+    
     rejected_df["rejection_reason"] = rejected_df.apply(reason_for_row, axis=1)
+
+    #logs succesfully created valid and rejected data frames
+    logger.info(f"Successfully validated {len(valid_df.index)} rows")
+    logger.info(f"Rejected {len(rejected_df.index)} rows")
 
     return valid_df, rejected_df
     
