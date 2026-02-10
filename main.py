@@ -1,6 +1,8 @@
 import logging
 from ingestion import *
+from db import *
 from pathlib import Path
+import mysql.connector
 
 def main():
     # Logger for the Ingestion 
@@ -23,10 +25,14 @@ def main():
     #turns the csv into a dataframe
     df = read_data(data_path)
     #takes the dataframe and turns it into a valid and a rejected dataframe
+    
     valid, rejected = retrieve_data(df)
     #cleans the valid data to be stored int he database
     valid = clean_data(valid)
-    print(valid.head())
+    # print(valid[valid['phase'].isna()])
+    start_DB()
+    insert_valid_data(valid)
+    close_connection()
     #loads valid into database
     #loader method goes here
 

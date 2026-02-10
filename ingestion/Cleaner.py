@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import logging
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +24,7 @@ def clean_data(df):
         logger.debug(f"Converted column '{col}' to numeric")
 
     # --- Enforce int type ---
-    df["time period"] = pd.to_numeric(df["time period"], errors="coerce").astype("Int64")
+    df["time period"] = pd.to_numeric(df["time period"], errors="coerce")
     logger.debug("Converted 'time period' to nullable Int64")
 
     # --- Enforce datetime ---
@@ -42,4 +43,6 @@ def clean_data(df):
         logger.debug(f"Converted '{col}' to string")
 
     logger.info(f"Completed data cleaning.")
+    df = df.replace({pd.NA: None, np.nan: None})
+ 
     return df
