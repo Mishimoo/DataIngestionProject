@@ -1,2 +1,3 @@
 # ignore credential files
 *.env
+__pycache__/
