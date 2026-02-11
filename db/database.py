@@ -72,14 +72,3 @@ def close_connection():
         logger.info("Successfully closed DB connection")
     except mysql.connector.Error as err:
         logger.error(f"Error occurred when closing the connection: {err}")
-
-
-
-
-#attempt to connect to the MySQL database
-
-
-# conn = sqlite3.connect('testDB.db')
-# c = conn.cursor()
-
-# c.execute("""CREATE TABLE IF NOT EXISTS mental_health (indicator TEXT, category TEXT, state TEXT, subcategory TEXT, Phase TEXT, time_period REAL, time_period_label TEXT, time_period_start_date TEXT, time_period_end_date TEXT, value REAL, lowci REAL, highci REAL, confidence_interval TEXT, quartile_range TEXT)""")
