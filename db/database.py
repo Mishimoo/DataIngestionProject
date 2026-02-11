@@ -26,7 +26,7 @@ def start_DB():
                 cursor.execute("CREATE DATABASE IF NOT EXISTS mental_health_db")
                 cursor.execute("USE mental_health_db")
                 cursor.execute("""CREATE TABLE IF NOT EXISTS mental_health (indicator TEXT NOT NULL, category TEXT NOT NULL, state TEXT NOT NULL, \
-                               subcategory TEXT NOT NULL, phase NUMERIC NOT NULL, time_period INT, time_period_label TEXT NOT NULL, time_period_start_date DATE NOT NULL,\
+                               subcategory TEXT NOT NULL, phase NUMERIC, time_period INT, time_period_label TEXT NOT NULL, time_period_start_date DATE NOT NULL,\
                                 time_period_end_date DATE NOT NULL, value NUMERIC, lowci NUMERIC, highci NUMERIC, confidence_interval TEXT, quartile_range TEXT)""")
                 cursor.execute("""CREATE TABLE IF NOT EXISTS mental_health_rejected (indicator TEXT, category TEXT, \
                                state TEXT, subcategory TEXT, phase NUMERIC, time_period INT, time_period_label TEXT, \
@@ -39,17 +39,13 @@ def start_DB():
 
 def insert_valid_data(df):
     data_to_insert = [tuple(row) for row in df.values]
-    # print(data_to_insert[0])
-    # print(data_to_insert[1])
     insert_query = """INSERT INTO mental_health (indicator, category, state, \
                                subcategory, phase, time_period, time_period_label, time_period_start_date,\
                                 time_period_end_date, value, lowci, highci, confidence_interval, quartile_range) VALUES (%s, %s, %s, \
                                %s, %s, %s, %s, %s,\
                                 %s, %s, %s, %s, %s, %s)"""
     try:
-        for data in data_to_insert:
-            
-            connection.cursor().execute(insert_query, data)
+        connection.cursor().executemany(insert_query, data_to_insert)
         connection.commit()
         logger.info(f"Succesfully inserted {len(data_to_insert)} rows into database")
     except mysql.connector.Error as err:
@@ -64,9 +60,7 @@ def insert_rejected_data(df):
                                %s, %s, %s, %s, %s,\
                                 %s, %s, %s, %s, %s, %s, %s, %s))"""
     try:
-        for data in data_to_insert:
-            print(data)
-            connection.cursor().execute(insert_query, data)
+        connection.cursor().executemany(insert_query, data_to_insert)
         connection.commit()
         logger.info(f"Succesfully inserted {len(data_to_insert)} rows into rejected database")
     except mysql.connector.Error as err:
