@@ -42,6 +42,15 @@ def clean_data(df):
         df[col] = df[col].astype("string")
         logger.debug(f"Converted '{col}' to string")
 
+    #if the dataframe has the rejected columns cleans them
+    if'rejection reason' in df.columns:
+        df['suppression flag'] = pd.to_numeric(df['suppression flag'], errors="coerce")
+        logger.debug(f"Converted column suppression flag to numeric")
+        df['rejection reason'] = df['rejection reason'].astype("string")
+        logger.debug(f"Converted rejection reason to string")
+
+
+
     logger.info(f"Completed data cleaning.")
     df = df.replace({pd.NA: None, np.nan: None})
  

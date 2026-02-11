@@ -57,7 +57,7 @@ def retrieve_data(df):
             return "phase = -1"
         return "unknown"
     
-    rejected_df["rejection_reason"] = rejected_df.apply(reason_for_row, axis=1)
+    rejected_df["rejection reason"] = rejected_df.apply(reason_for_row, axis=1)
 
     #logs succesfully created valid and rejected data frames
     logger.info(f"Successfully validated {len(valid_df.index)} rows")
