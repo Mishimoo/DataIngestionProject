@@ -1006,3 +1006,138 @@
 15852 - 11-Feb-26 09:24:19 - DBlogger - Successfully connected to database
 15852 - 11-Feb-26 09:24:19 - DBlogger - Succesfully inserted 9914 rows into database
 15852 - 11-Feb-26 09:24:19 - DBlogger - Successfully closed DB connection
+14308 - 11-Feb-26 10:57:09 - main - Ingestion pipeline starting
+14308 - 11-Feb-26 10:57:09 - ingestion.Reader - Attempting to read CSV at C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+14308 - 11-Feb-26 10:57:09 - ingestion.Reader - Read 10404 rows from C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+14308 - 11-Feb-26 10:57:09 - ingestion.Validator - Successfully validated 9914 rows
+14308 - 11-Feb-26 10:57:09 - ingestion.Validator - Rejected 490 rows
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Starting data cleaning step
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Removed 0 duplicate rows
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'phase' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'value' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'lowci' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'highci' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period start date' to datetime
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period end date' to datetime
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'indicator' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'group' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'state' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'subgroup' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period label' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'confidence interval' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'quartile range' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Completed data cleaning.
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Starting data cleaning step
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Removed 0 duplicate rows
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'phase' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'value' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'lowci' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column 'highci' to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period start date' to datetime
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period end date' to datetime
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'indicator' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'group' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'state' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'subgroup' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'time period label' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'confidence interval' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted 'quartile range' to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted column suppression flag to numeric
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Converted rejection reason to string
+14308 - 11-Feb-26 10:57:09 - ingestion.Cleaner - Completed data cleaning.
+14308 - 11-Feb-26 10:57:09 - DBlogger - Successfully connected to database
+14308 - 11-Feb-26 10:57:09 - DBlogger - Succesfully inserted 9914 rows into database
+14308 - 11-Feb-26 10:57:09 - DBlogger - Error occurred during data insertion: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),('Took Prescription Medication for Mental Health, Last 4 Weeks', 'By Age', 'Un' at line 1
+14308 - 11-Feb-26 10:57:09 - DBlogger - Successfully closed DB connection
+28264 - 11-Feb-26 10:57:36 - main - Ingestion pipeline starting
+28264 - 11-Feb-26 10:57:36 - ingestion.Reader - Attempting to read CSV at C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+28264 - 11-Feb-26 10:57:36 - ingestion.Reader - Read 10404 rows from C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+28264 - 11-Feb-26 10:57:36 - ingestion.Validator - Successfully validated 9914 rows
+28264 - 11-Feb-26 10:57:36 - ingestion.Validator - Rejected 490 rows
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Starting data cleaning step
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Removed 0 duplicate rows
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'phase' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'value' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'lowci' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'highci' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period start date' to datetime
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period end date' to datetime
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'indicator' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'group' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'state' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'subgroup' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period label' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'confidence interval' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'quartile range' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Completed data cleaning.
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Starting data cleaning step
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Removed 0 duplicate rows
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'phase' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'value' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'lowci' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column 'highci' to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period start date' to datetime
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period end date' to datetime
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'indicator' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'group' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'state' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'subgroup' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'time period label' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'confidence interval' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted 'quartile range' to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted column suppression flag to numeric
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Converted rejection reason to string
+28264 - 11-Feb-26 10:57:36 - ingestion.Cleaner - Completed data cleaning.
+28264 - 11-Feb-26 10:57:36 - DBlogger - Successfully connected to database
+28264 - 11-Feb-26 10:57:36 - DBlogger - Succesfully inserted 9914 rows into database
+28264 - 11-Feb-26 10:57:36 - DBlogger - Succesfully inserted 490 rows into rejected database
+28264 - 11-Feb-26 10:57:36 - DBlogger - Successfully closed DB connection
+8232 - 11-Feb-26 10:59:09 - main - Ingestion pipeline starting
+8232 - 11-Feb-26 10:59:09 - ingestion.Reader - Attempting to read CSV at C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+8232 - 11-Feb-26 10:59:09 - ingestion.Reader - Read 10404 rows from C:\Users\armin\OneDrive\Desktop\Developer\MHIngestion\data\Mental_Health_DB.csv
+8232 - 11-Feb-26 10:59:09 - ingestion.Validator - Successfully validated 9914 rows
+8232 - 11-Feb-26 10:59:09 - ingestion.Validator - Rejected 490 rows
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Starting data cleaning step
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Removed 0 duplicate rows
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'phase' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'value' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'lowci' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'highci' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period start date' to datetime
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period end date' to datetime
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'indicator' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'group' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'state' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'subgroup' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period label' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'confidence interval' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'quartile range' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Completed data cleaning.
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Starting data cleaning step
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Removed 0 duplicate rows
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'phase' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'value' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'lowci' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column 'highci' to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period' to nullable Int64
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period start date' to datetime
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period end date' to datetime
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'indicator' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'group' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'state' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'subgroup' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'time period label' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'confidence interval' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted 'quartile range' to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted column suppression flag to numeric
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Converted rejection reason to string
+8232 - 11-Feb-26 10:59:09 - ingestion.Cleaner - Completed data cleaning.
+8232 - 11-Feb-26 10:59:09 - DBlogger - Successfully connected to database
+8232 - 11-Feb-26 10:59:10 - DBlogger - Succesfully inserted 9914 rows into database
+8232 - 11-Feb-26 10:59:10 - DBlogger - Succesfully inserted 490 rows into rejected database
+8232 - 11-Feb-26 10:59:10 - DBlogger - Successfully closed DB connection

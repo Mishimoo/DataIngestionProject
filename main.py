@@ -29,9 +29,11 @@ def main():
     valid, rejected = retrieve_data(df)
     #cleans the valid data to be stored int he database
     valid = clean_data(valid)
+    rejected = clean_data(rejected)
     # print(valid[valid['phase'].isna()])
     start_DB()
     insert_valid_data(valid)
+    insert_rejected_data(rejected)
     close_connection()
     #loads valid into database
     #loader method goes here

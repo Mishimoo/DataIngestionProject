@@ -58,7 +58,7 @@ def insert_rejected_data(df):
                                 time_period_end_date, value, lowci, highci, confidence_interval, quartile_range,\
                                       suppression_flag, rejection_reason) VALUES (%s, %s, %s, \
                                %s, %s, %s, %s, %s,\
-                                %s, %s, %s, %s, %s, %s, %s, %s))"""
+                                %s, %s, %s, %s, %s, %s, %s, %s)"""
     try:
         connection.cursor().executemany(insert_query, data_to_insert)
         connection.commit()
